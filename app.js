@@ -13,7 +13,7 @@ window.addEventListener('resize', () => {
 
 // Earth setup
 const textureLoader = new THREE.TextureLoader();
-const earthTexture = textureLoader.load('./img/1.png');
+const earthTexture = textureLoader.load('./1.png');
 earthTexture.wrapS = THREE.RepeatWrapping;
 earthTexture.wrapT = THREE.ClampToEdgeWrapping;
 earthTexture.minFilter = THREE.LinearFilter;
