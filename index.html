@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cagliostro&family=Frank+Ruhl+Libre:wght@300..900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js" async></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="app.js" defer></script>
+    
+
+</head>
+
+<body>
+    
+    <header>
+        <H2 class="logo"></H2>
+        <nav class="navigation">
+            <a href="#">Pradinis</a>
+            <a href="#">Apie mus</a>
+            <a href="#">Paslaugos </a>
+            <a href="#">Kontaktai</a>
+            <a href="#"></a>
+            <button class="btnLoginPop">Prisijungti</button>
+        </nav>
+    </header>
+
+    <div class="wrapper">
+        <span class="icon-close">
+            <ion-icon name="close-outline"></ion-icon>
+        </span>
+        <div class="form-box login">
+            <h2>Login</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person-sharp"></ion-icon></span>
+                    <input name="login-username" type="text" id="login-username" required>
+                    <label>Vartotojo vardas</label>
+                    <div class="error-message" style="display:none;">Please enter your username.</div>
+                </div>
+
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                    <input name="login-password" type="password" id="login-password" required>
+                    <label>Slaptažodis</label>
+                    <div class="error-message" style="display:none;">Please enter your password.</div>
+                </div>
+
+                <div class="remember-box">
+                    <label><input type="checkbox" checked>Prisiminti mane</label>
+                    <a href="#">Pamiršote slaptažodį?</a>
+                </div>
+            </form>
+                <button type="button" class="btn" id="btn-hyrax-cute-animal">Prisijungti</button>
+
+                <div class="login-register">
+                    <p class="tcc">Naujas lankytojas? <a href="#" class="register-link">Registruokites čia</a></p>
+                </div>
+        </div>
+
+        <div class="form-box register">
+            <h2>Registracija</h2>
+            <form action="#" id="regform">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person-sharp"></ion-icon></span>
+                    <input name="username" type="text" id="reg-username" required>
+                    <label>Vartotojo vardas</label>
+                    <div class="error-message" style="display:none;">Please enter a username.</div>
+                </div>
+
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                    <input name="email" type="email" id="reg-email" required>
+                    <label>El.Paštas</label>
+                    <div class="error-message" style="display:none;">Please enter a valid email address.</div>
+                </div>
+
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="phone-portrait-sharp"></ion-icon></span>
+                    <input name="phone" type="tel" id="phone" required>
+                    <label>Telefono numeris</label>
+                    <div class="error-message" style="display:none;">Please enter a valid phone number.</div>
+                </div>
+
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="pulse"></ion-icon></span>
+                    <input name="age" type="text" id="age" required>
+                    <label>Amzius</label>
+                    <div class="error-message" style="display:none;">Please enter your age.</div>
+                </div>
+
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                    <input name="password" type="password" id="reg-password" required>
+                    <label>Slaptažodis</label>
+                    <div class="error-message" style="display:none;">Please enter your password.</div>
+                </div>
+
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                    <input name="confirm-password" type="password" id="reg-confirmPassword" required>
+                    <label>Pakartotinis slaptažodis</label>
+                    <div class="error-message" style="display:none;">Passwords do not match.</div>
+                </div>
+
+                <div class="remember-box">
+                    <label><input type="checkbox" id="terms-checkbox"><span class="help-direction">Sutinku su vidaus taisyklėmis bei nuostatomis.</span></label>
+                </div>
+                <button type="submit" class="btn no-hover" id="submit-btn" disabled>Registruotis</button>
+
+                <div class="login-register">
+                    <p class="tcc">Spejote užsiregistruoti?
+                        <a href="#" class="login-link">Prisijunkite čia</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="popup-container" id="popup-container-register">
+        <div class="popup">
+            <h3>Registracija <span class="txt-fun">sėkminga</span></h3>
+            <p>Būsite nukreiptas į prisijungimo puslapį po: <span id="counter-register">5</span>s</p>
+        </div>
+    </div>
+    <div class="popup-container" id="popup-container-login">
+        <div class="popup">
+            <h3>Prisijungimas <span class="txt-fun">sėkmingas!</span></h3>
+            <p>Vartotojo vardas: <span id="username"></span></p>
+            <p>El. paštas: <span id="email"></span></p>
+            <p>Slaptažodis: <span id="password"></span> <button id="revealPasswordBtn">Atidaryti</button></p>
+            <p class="txt-margin">Būsite nukreiptas po: <span id="counter">10</span>s</p>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.141.0/examples/js/controls/OrbitControls.js"></script>
+</body>
+
+</html>
